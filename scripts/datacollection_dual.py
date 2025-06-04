@@ -6,9 +6,11 @@ from datetime import datetime
 from picamera2 import Picamera2
 from PIL import Image
 
+
 """
-Data gathering script to be run on Raspberry Pi with two cameras.
+    Data gathering script to be run on Raspberry Pi with two cameras.
 """
+
 
 # initialize and configure the two cameras
 picam2a = Picamera2(0)
