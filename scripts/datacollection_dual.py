@@ -6,11 +6,9 @@ from datetime import datetime
 from picamera2 import Picamera2
 from PIL import Image
 
-
 """
     Data gathering script to be run on Raspberry Pi with two cameras.
 """
-
 
 # initialize and configure the two cameras
 picam2a = Picamera2(0)
@@ -38,25 +36,29 @@ def capture_image(camera, filename):
     img = Image.open(filename)
     img = img.rotate(180)
     img.save(filename)
-    print(f"Image saved as {filename}")
+    print(f"image saved as {filename}")
 
-print("Press 'f' to take a picture. Press 'q' to quit.")
+print("press 'f' or 'p' to take a picture. Press 'q' to quit.")
+
+counter = 0 
 
 # loop to keep capturing images until 'q' is pressed
 while True:
     user_input = input()
-    if user_input == 'f':
+    if user_input == 'f' or user_input == 'p':
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename_a = os.path.join(save_directory, f"camera_a_{timestamp}.jpg")
         filename_b = os.path.join(save_directory, f"camera_b_{timestamp}.jpg")
 
-        print(f"Key 'f' pressed! Taking pictures...")
-
+        print(f"key '{user_input}' pressed! Taking pictures...")
+ 
         capture_image(picam2a, filename_a)
+        counter += 1 
         capture_image(picam2b, filename_b)
+        counter += 1 
 
-        time.sleep(1)
+        print("taken " + str(counter) + " pictures so far!")
 
     elif user_input == 'q':
-        print("Quitting...")
+        print("quitting...")
         break
