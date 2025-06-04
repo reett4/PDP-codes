@@ -15,9 +15,10 @@ from PyQt5.QtGui import QPixmap
 
 
 """ 
-    Reads and prints data received over from a socket.
+    Shows the (receiver-side) demonstration window when mine detection and state data are received 
+    from Jetson over a socket.
 
-    Physical dimensions of the relevant objects:
+    Physical dimensions of the relevant objects, relevant for scaling calculations:
     * PFM-1: width 12 cm
     * 9N235: width 24 cm
     * sandbox: width 119,5 cm, height 109,5 cm
