@@ -21,7 +21,7 @@ The structure of the repository is as follows:
     * `four_camera_button.py` is the demo used in the Demo Day
     * `test_detect.py` tests detection with a given model from one camera
     * `test_usb.py` implements the logic for uploading data from Jetson to USB
-* `fly_detect_new.py` is to be run from boot to detect mines when flying the drone, and saves
+* `fly_detect_new.py` is to be run from boot to detect mines when flying the drone, and saves both detected mines and all acquired frames
 
 ## Notes
 
